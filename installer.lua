@@ -1,4 +1,4 @@
-local reactorPeripheralType = "Bigger-Reactor"
+local reactorPeripheralType = "bigger-reactor"
 term.setBackgroundColour(colours.blue)
 term.setTextColour(colours.white)
 term.clear()
