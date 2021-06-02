@@ -195,6 +195,9 @@ local function main()
     term.clear()
     error("Exited")
   end)
+  while true do
+    button.executeButtons({os.pullEvent()})
+  end
 end
 
 main()
