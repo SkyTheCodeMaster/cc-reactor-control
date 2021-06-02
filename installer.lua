@@ -47,23 +47,23 @@ term.setCursorPos(1,2)
 term.write("Done. Downloading assets.")
 
 -- We don't need to save the installer skimg file, so we can just save it in a local variable.
-local content,err = sUtils.hread("https://github.com/SkyTheCodeMaster/cc-reactor-control/blob/main/assets/installer.skimg")
+local content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/cc-reactor-control/main/assets/installer.skimg")
 if not content then error("installer.skimg: " .. err) end
 local installerSkimg = textutils.unserialize(content)
 
 -- Download the monitor and term skimgs
-content,err = sUtils.hread("https://github.com/SkyTheCodeMaster/cc-reactor-control/blob/main/assets/monitor.skimg")
+content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/cc-reactor-control/main/assets/monitor.skimg")
 if not content then error("monitor.skimg: " .. err) end
 sUtils.fwrite("assets/monitor.skimg",content)
 
-content,err = sUtils.hread("https://github.com/SkyTheCodeMaster/cc-reactor-control/blob/main/assets/terminal.skimg")
+content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/cc-reactor-control/main//assets/terminal.skimg")
 if not content then error("terminal.skimg: " .. err) end
 sUtils.fwrite("assets/terminal.skimg",content)
 
 term.setCursorPos(1,3)
 term.write("Done. Downloading scripts.")
 
-content,err = sUtils.hread("https://github.com/SkyTheCodeMaster/cc-reactor-control/blob/main/main.lua")
+content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/cc-reactor-control/main/main.lua")
 if not content then error("reactor.lua: " .. err) end
 sUtils.fwrite("reactor.lua",content)
 
