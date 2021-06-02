@@ -73,7 +73,7 @@ local function main()
 
   local peripherals = peripheral.getNames()
   local reactors,monitors,config = {},{},{}
-  for i,#peripherals do
+  for i=1,#peripherals do
     local pType = peripheral.getType(peripherals[i])
     if pType == reactorPeripheralType then
       table.insert(reactors,peripherals[i])
