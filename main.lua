@@ -67,9 +67,14 @@ end
 -- colours.pink: energy/cold coolant bar 
 -- colours.cyan: hot coolant bar 
 
-local function convertColour(col,barPercentage)
+local function redGreen(col,barPercentage)
   local p = barPercentage/100
   mon.setPaletteColour(col, 1-p,p,0)
+end
+
+local function greenRed(col,barPercentage)
+  local p = barPercentage/100
+  mon.setPaletteColour(col, p,1-p,0)
 end
 
 local function toSI(x) 
@@ -94,14 +99,20 @@ local bReactOff = button.newButton(48,34,3,3,function() reactor.setActive(false)
 local bRodIncrease = button.newButton(37,11,3,3,function()
   local controlRodDepth = reactor.getControlRodLevel(0)
   if controlRodDepth < 100 then
-    controlRodDepth = controlRodDepth + 1
+    controlRodDepth = controlRodDepth + 5
+    reactor.setAllControlRodLevels(controlRodDepth)
+  else
+    controlRodDepth = 100
     reactor.setAllControlRodLevels(controlRodDepth)
   end
 end)
 local bRodDecrease = button.newButton(2,11,3,3,function()
   local controlRodDepth = reactor.getControlRodLevel(0)
   if controlRodDepth > 0 then
-    controlRodDepth = controlRodDepth - 1
+    controlRodDepth = controlRodDepth - 5
+    reactor.setAllControlRodLevels(controlRodDepth)
+  else
+    controlRodDepth = 0
     reactor.setAllControlRodLevels(controlRodDepth)
   end
 end)
@@ -218,15 +229,15 @@ local function drawData()
     -- colours.cyan: hot coolant bar 
     -- Fuel bar! 
     fuelBar:update(data.fuelPercent)
-    convertColour(colours.magenta,data.fuelPercent)
+    redGreen(colours.magenta,data.fuelPercent)
     wasteBar:update(data.wastePercent)
-    convertColour(colours.lightBlue,data.wastePercent)
+    greenRed(colours.lightBlue,data.wastePercent)
     caseHeatBar:update(data.caseTempPercent)
-    convertColour(colours.yellow,data.caseTempPercent)
+    redGreen(colours.yellow,data.caseTempPercent)
     fuelHeatBar:update(data.fuelTempPercent)
-    convertColour(colours.lime,data.fuelTempPercent)
+    redGreen(colours.lime,data.fuelTempPercent)
     controlBar:update(data.controlRodDepth)
-    convertColour(colours.orange,data.controlRodDepth)
+    greenRed(colours.orange,data.controlRodDepth)
     -- Draw the control rod percentage 
     local str = sUtils.cut(data.controlRodDepth .. "%",4)
     mon.setCursorPos(18,8)
