@@ -6,6 +6,7 @@ local monSkimg = sUtils.asset.load("assets/monitor.skimg")
 local termSkimg = sUtils.asset.load("assets/terminal.skimg")
 local config = sUtils.encfread(".reactor.conf")
 local mon = peripheral.wrap(config.monitor)
+mon.setTextScale(0.5)
 local reactor = peripheral.wrap(config.reactor)
 reactor.setAllControlRodLevels(0)
 
