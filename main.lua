@@ -78,11 +78,11 @@ local function toSI(x)
 end
 
 local controlBar = pg.create(2,9,37,1,colours.orange,colours.grey,nil,mon)
-local fuelBar = pg.create(2,27,23,1,colours.magenta,nil,mon)
-local wasteBar = pg.create(2,29,23,1,colours.lightBlue,nil,mon)
-local caseHeatBar = pg.create(2,31,23,1,colours.yellow,nil,mon) 
-local fuelHeatBar = pg.create(2,33,23,1,colours.lime,nil,mon) 
-local energyBar = pg.create(2,35,23,1,colours.pink,nil,mon)
+local fuelBar = pg.create(2,27,23,1,colours.magenta,colours.grey,nil,mon)
+local wasteBar = pg.create(2,29,23,1,colours.lightBlue,colours.grey,nil,mon)
+local caseHeatBar = pg.create(2,31,23,1,colours.yellow,colours.grey,nil,mon) 
+local fuelHeatBar = pg.create(2,33,23,1,colours.lime,colours.grey,nil,mon) 
+local energyBar = pg.create(2,35,23,1,colours.pink,colours.grey,nil,mon)
 local hotCoolantBar
 if reactor.isActivelyCooled() then
   hotCoolantBar = pg.create(2,37,23,1,colours.cyan,nil,mon)
