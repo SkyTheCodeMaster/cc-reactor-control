@@ -36,7 +36,7 @@ end
 
 if not fs.exists("progressBar.lua") then
   -- progressBar doesn't exist, download it.
-  local content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/SkyDocs/ddec75606d183c743c9a92bd08d28b60f8caae3a/src/main/misc/progressbar.lua") -- Collect the progress bar package.
+  local content,err = sUtils.hread("https://raw.githubusercontent.com/SkyTheCodeMaster/SkyDocs/main/src/main/misc/progressbar.lua") -- Collect the progress bar package.
   if not content then error("pg: " .. err) end -- Check if we got a handle, and error if we don't.
   -- We got the library, now write it to file.
   sUtils.fwrite("progressBar.lua",content)
